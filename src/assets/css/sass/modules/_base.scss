@@ -1,0 +1,58 @@
+//VARIABLES
+
+//Breakpoints;
+$bp-desktop: 1600px;
+$bp-tablet: 1024px;
+$bp-phone: 800px;
+
+
+
+//Colors
+$c-red: red;
+$c-orange: orange;
+$c-blue: blue;
+$c-green: green;
+$c-yellow: gold;
+$c-white: white;
+$c-black: black;
+
+
+
+$c-first: #212121;
+$c-second: #00e;
+$c-third: #5a5aff;
+$c-fourth: #f79f24;
+$c-bg: #feefd0;
+$c-correct: #8bc34a;
+$c-error: #970810;
+
+
+
+//Typography
+$f-sans: 'ProximaNova', 'Montserrat', 'Arial', sans-serif;
+$f-safe: 'Verdana', 'Arial', $f-sans;
+$f-title: 'Action', 'Montserrat', $f-sans;
+$f-stack-serif: 'Georgia', 'Times', 'Times New Roman', serif;
+$f-monospace: 'Work Sans', monospace;
+
+$f-bigger: 120px;
+$f-big:	36px;
+$f-medium: 24px;
+$f-regular:	16px;
+
+
+body{
+	margin: 0;
+	font-family: $f-sans;
+}
+
+img{
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	@include transition(200ms);
+	// opacity: 0;
+	&.loaded{
+		opacity: 1;
+	}
+}

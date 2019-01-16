@@ -1,20 +1,120 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div id="gig-uidev" class="flex center">
+	<div class="background">
+		<div class="kaboo top" style="background-image: url('assets/img/kaboo.png');"></div>
+		<div class="kaboo bottom" style="background-image: url('assets/img/kaboo.png');"></div>
+		<div class="kaboo-overlay"></div>
+	</div>
 
+	<div class="form-container glow-box">
+		<div class="form-title"><h1>Register</h1></div>
+		<div class="form-subtitle"><h2>#USERNAME# Please finalise your registration BEFORE YOU CAN PROCEED</h2></div>
+		<form class="form">
+			<div class="form-column halfwidth">
+				<div class="form-row">
+					<div class="form-item halfwidth">
+						<label class="form-title fullwidth">First name:</label>
+						<div class="form-content validation correct">
+							<input class="input glow-box fullwidth" type="text" value="Daniel">
+						</div>
+					</div>
+					<div class="form-item halfwidth">
+						<label class="form-title fullwidth">Last name:</label>
+						<div class="form-content">
+							<input class="input glow-box fullwidth" type="text" value="Last name">
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-item twothirdwidth">
+						<label class="form-title fullwidth">DATE OF BIRTH (DD/MM/YYYY)</label>
+						<div class="form-content">
+							<input class="input glow-box fullwidth" type="text">
+						</div>
+					</div>
+					<div class="form-item thirdwidth">
+						<div class="form-content">
+							<div class="form-item custom-radio fullwidth">
+								<div class="radio">
+									<input type="radio" name="gender" id="male" checked>
+									<span></span>
+								</div>
+								<label class="form-title" for="male">Male</label>
+							</div>
+							<div class="form-item custom-radio fullwidth">
+								<div class="radio">
+									<input type="radio" name="gender" id="female">
+									<span></span>
+								</div>
+								<label class="form-title" for="female">Female</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-item fullwidth">
+						<label class="form-title fullwidth">Address:</label>
+						<div class="form-content validation error">
+							<input class="input glow-box fullwidth" type="text" value="Address">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-column halfwidth">
+				<div class="form-row">
+					<div class="form-item halfwidth">
+						<label class="form-title thirdwidth">Postcode:</label>
+						<input class="input glow-box fullwidth" type="text" value="postcode">
+					</div>
+					<div class="form-item twothirdwidth">
+						<label class="form-title fullwidth">City:</label>
+						<div class="form-content">
+							<input class="input glow-box fullwidth" type="text" value="city">
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-item fullwidth">
+						<label class="form-title fullwidth">Country</label>
+						<div class="form-content">
+							<select class="input glow-box">
+								<option selected>Sweden</option>
+								<option>Norway</option>
+								<option>Finland</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-item thirdwidth">
+						<label class="form-title fullwidth">Country code:</label>
+						<div class="form-content">
+							<select class="input glow-box">
+								<option selected>+46</option>
+								<option>+47</option>
+								<option>+48</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-item twothirdwidth">
+						<label class="form-title fullwidth">Phone number:</label>
+						<div class="form-content">
+							<input class="input glow-box fullwidth" type="text" value="phone number">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-column fullwidth">
+				<div class="form-row">
+					<div class="form-item fullwidth">
+						<button class="button white big">COMPLETE REGISTRATION</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="form-comment">
+			<h2>YOU WILL THEN CONFIRM YOUR DEPOSIT</h2>
+		</div>
+	</div>
+</div>
