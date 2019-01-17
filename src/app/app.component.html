@@ -1,83 +1,91 @@
-<div id="gig-uidev" class="flex center">
+<div class="fullpage flex center align-start">
 	<div class="background">
-		<div class="kaboo top" style="background-image: url('assets/img/kaboo.png');"></div>
-		<div class="kaboo bottom" style="background-image: url('assets/img/kaboo.png');"></div>
+		<div class="kaboo top"></div>
+		<div class="kaboo bottom"></div>
 		<div class="kaboo-overlay"></div>
 	</div>
 
 	<div class="form-container glow-box">
 		<div class="form-title"><h1>Register</h1></div>
 		<div class="form-subtitle"><h2>#USERNAME# Please finalise your registration BEFORE YOU CAN PROCEED</h2></div>
-		<form class="form">
-			<div class="form-column halfwidth">
-				<div class="form-row">
-					<div class="form-item halfwidth">
+		<form class="form flex wrap">
+			<div class="form-column flex column halfwidth">
+				<div class="form-row flex">
+					<div class="form-item flex column justify-end halfwidth">
 						<label class="form-title fullwidth">First name:</label>
-						<div class="form-content validation correct">
-							<input class="input glow-box fullwidth" type="text" value="Daniel">
+						<div class="form-content validation active correct">
+							<input tabindex="1" class="input fullwidth" type="text" placeholder="First name" value="Daniel">
+							<span class="validation-icon flex center correct">
+								<svg class="validation-svg" viewBox="0 0 56 56">
+									<polyline class="svg-icon-border c-white" points="14,32.3 22.5,41.2 42.9,15.5"/>
+									<circle class="svg-icon-border c-white" cx="28" cy="28" r="26.5"/>
+								</svg>
+							</span>
 						</div>
 					</div>
-					<div class="form-item halfwidth">
+					<div class="form-item flex column justify-end halfwidth">
 						<label class="form-title fullwidth">Last name:</label>
 						<div class="form-content">
-							<input class="input glow-box fullwidth" type="text" value="Last name">
+							<input class="input fullwidth" type="text" placeholder="Last name">
 						</div>
 					</div>
 				</div>
-				<div class="form-row">
-					<div class="form-item twothirdwidth">
+				<div class="form-row flex">
+					<div class="form-item flex column justify-end twothirdwidth">
 						<label class="form-title fullwidth">DATE OF BIRTH (DD/MM/YYYY)</label>
 						<div class="form-content">
-							<input class="input glow-box fullwidth" type="text">
+							<input class="input fullwidth" type="text">
 						</div>
 					</div>
-					<div class="form-item thirdwidth">
-						<div class="form-content">
-							<div class="form-item custom-radio fullwidth">
+					<div class="form-item flex column justify-end thirdwidth">
+						<div class="form-content justify-end">
+							<div class="form-item flex custom-radio fullwidth">
 								<div class="radio">
 									<input type="radio" name="gender" id="male" checked>
-									<span></span>
+									<span readonly=”readonly”></span>
 								</div>
 								<label class="form-title" for="male">Male</label>
 							</div>
-							<div class="form-item custom-radio fullwidth">
+							<div class="form-item flex custom-radio fullwidth">
 								<div class="radio">
 									<input type="radio" name="gender" id="female">
-									<span></span>
+									<span readonly=”readonly”></span>
 								</div>
 								<label class="form-title" for="female">Female</label>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="form-row">
-					<div class="form-item fullwidth">
+				<div class="form-row flex">
+					<div class="form-item flex column justify-end fullwidth">
 						<label class="form-title fullwidth">Address:</label>
-						<div class="form-content validation error">
-							<input class="input glow-box fullwidth" type="text" value="Address">
+						<div class="form-content validation active error">
+							<input class="input fullwidth" type="text" placeholder="Address" value="Address">
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="form-column halfwidth">
-				<div class="form-row">
-					<div class="form-item halfwidth">
+			<div class="form-column flex column halfwidth">
+				<div class="form-row flex">
+					<div class="form-item flex column justify-end halfwidth">
 						<label class="form-title thirdwidth">Postcode:</label>
-						<input class="input glow-box fullwidth" type="text" value="postcode">
+						<div class="form-content">
+							<input class="input fullwidth" type="text" placeholder="postcode">
+						</div>
 					</div>
-					<div class="form-item twothirdwidth">
+					<div class="form-item flex column justify-end twothirdwidth">
 						<label class="form-title fullwidth">City:</label>
 						<div class="form-content">
-							<input class="input glow-box fullwidth" type="text" value="city">
+							<input class="input fullwidth" type="text" placeholder="city">
 						</div>
 					</div>
 				</div>
-				<div class="form-row">
-					<div class="form-item fullwidth">
+				<div class="form-row flex">
+					<div class="form-item flex column justify-end fullwidth">
 						<label class="form-title fullwidth">Country</label>
 						<div class="form-content">
-							<select class="input glow-box">
+							<select class="input">
 								<option selected>Sweden</option>
 								<option>Norway</option>
 								<option>Finland</option>
@@ -85,35 +93,35 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-row">
-					<div class="form-item thirdwidth">
+				<div class="form-row flex">
+					<div class="form-item flex column justify-end thirdwidth">
 						<label class="form-title fullwidth">Country code:</label>
 						<div class="form-content">
-							<select class="input glow-box">
+							<select class="input">
 								<option selected>+46</option>
 								<option>+47</option>
 								<option>+48</option>
 							</select>
 						</div>
 					</div>
-					<div class="form-item twothirdwidth">
+					<div class="form-item flex column justify-end twothirdwidth">
 						<label class="form-title fullwidth">Phone number:</label>
 						<div class="form-content">
-							<input class="input glow-box fullwidth" type="text" value="phone number">
+							<input class="input fullwidth" type="text" placeholder="phone number">
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="form-column fullwidth">
-				<div class="form-row">
-					<div class="form-item fullwidth">
+			<div class="form-column flex column fullwidth">
+				<div class="form-row flex">
+					<div class="form-item flex column justify-end fullwidth">
 						<button class="button white big">COMPLETE REGISTRATION</button>
 					</div>
 				</div>
 			</div>
 		</form>
-		<div class="form-comment">
+		<div class="form-comment form-subtitle">
 			<h2>YOU WILL THEN CONFIRM YOUR DEPOSIT</h2>
 		</div>
 	</div>

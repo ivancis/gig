@@ -1,4 +1,4 @@
-//MIXINS TRANSITION
+//TRANSITION
 @mixin transition($valor){
   transition: all ($valor) ease-in-out;
   -webkit-transition: all ($valor) ease-in-out;
@@ -7,7 +7,7 @@
   -ms-transition: all ($valor) ease-in-out;
 }
 
-//MIXINS TRANSFORM
+//TRANSFORM
 @mixin transform($valor){
   transform: ($valor);
   -webkit-transform: ($valor);
@@ -16,13 +16,13 @@
   -ms-transform: ($valor);
 }
 
+//LISTINGS
 @mixin listing-vertical($valor){
   margin-bottom: ($valor);
   &:last-child{
     margin-bottom: 0;
   }
 }
-
 @mixin listing-horizontal($valor){
   margin-right: ($valor);
   &:last-child{
@@ -31,109 +31,40 @@
 }
 
 
-@mixin absolute-container{
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+//TYPOGRAPHY
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+  @if $fallback {
+    font-size: $fallback;
+  }
+
+  font-size: $responsive;
 }
 
-@mixin glow-box{
-  background-color: rgba($c-black, 0.5);
-  border: 2px solid rgba($c-first, 0.2);
-  box-shadow: 0px 0px 13px -1px rgba($c-second, 0.4);
-  &:hover{
-    border: 2px solid rgba($c-first, 0.5);
-    box-shadow: 0px 0px 13px -1px rgba($c-second, 0.8);
-  }
-  &:focus{
-    border: 2px solid $c-first;
-    box-shadow: 0px 0px 24px 0px $c-second;
-  }
-}
-
-@mixin fade-in{
-  opacity: 0 !important;
-  animation: fade-in 0.2s ease-in-out forwards;
-  animation-delay: 0.2s;
-}
-@mixin inshow{
-  opacity: 0 !important;
-  animation: inshow 0.4s ease-in-out forwards;
-  animation-delay: 0.5s;
-}
-@mixin inshow-top{
-  opacity: 0 !important;
-  animation: inshow-top 0.4s ease-in-out forwards;
-  animation-delay: 0.4s;
-}
-
-@mixin inshow-fast{
-  opacity: 0 !important;
-  animation: inshow 0.2s ease-in-out forwards;
-  animation-delay: 0.1s;
-}
-
-@keyframes fade-in{
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes inshow-top{
-  0% {
-    transform: translate(0px, 5px);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(0px, 0px);
-    opacity: 1;
-  }
-}
-@keyframes inshow{
-  0% {
-    transform: translate(-5px, 0px);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(0px, 0px);
-    opacity: 1;
-  }
-}
-@keyframes inshow-top{
-  0% {
-    transform: translate(0px, 5px);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(0px, 0px);
-    opacity: 1;
-  }
-}
-
-
-
-
+// BP
 $mq-support: true !default;
 $mq-fixed-value: 1024px !default;
 
 @mixin bp($feature, $value) {
-// Set global device param
 $media: only screen;
 
-// Media queries supported
 @if $mq-support == true {
-
   @media #{$media} and ($feature: $value) {
     @content;
   }
-
-// Media queries not supported
 } @else {
-
   @if $feature == 'min-width' {
     @if $value <= $mq-fixed-value {
       @content;
@@ -143,7 +74,6 @@ $media: only screen;
         @content;
       }
     }
-
   }
 }
 
@@ -154,144 +84,41 @@ $media: only screen;
 }
 
 
-@mixin card-shadow-light {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.04);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//CUSTOM TOOLBOX
+@mixin absolute-container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
-
-@mixin card-shadow {
-  box-shadow: 0 1px 0px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+@mixin glow-box{
+  background-color: rgba($c-black, 0.5);
+  border: 2px solid rgba($c-first, 0.2);
+  box-shadow: 0px 0px 13px -1px rgba($c-second, 0.4);
 }
-@mixin card-shadow-fancy {
-  border-radius: 5px;
-  box-shadow: 0 10px 20px rgba($c-first,0.15), 0 3px 6px rgba($c-first,0.17);
-}
-
-@mixin card-shadow-hover {
-  box-shadow: 0 0.5px 1px rgba(0,0,0,0.1), 0 0px 1px rgba(0,0,0,0.5);;
-}
-
-
-
-
-// Animation Keyframes
-//********************************************************//
-@mixin rotate-forever {
-  0%    { @include transform(rotate(0deg)); }
-  100%  { @include transform(rotate(360deg)); }
-}
-@-webkit-keyframes rotate-forever { @include rotate-forever; }
-@-moz-keyframes rotate-forever { @include rotate-forever; }
-@keyframes rotate-forever { @include rotate-forever; }
-
-//********************************************************//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//TILTED
-/// Computes the height of the tilted pseudo-element based on the given angle
-/// using Pythagoras Theorem.
-// sin(..), pow(..) and sqrt(..)  functions come from this pen:
-// http://codepen.io/HugoGiraudel/pen/rLpPGo
-/// @access public
-/// @author Hugo Giraudel
-/// @param {Angle} $angle - the tilt angle
-@function get-tilted-height($angle) {
-  $a: (100% / 1%);
-  $A: (90deg - $angle);
-  $c: ($a / sin($A));
-  $b: sqrt(pow($c, 2) - pow($a, 2));
-
-  @return (abs($b) * 1%);
-}
-
-/// Apply a tilted effect by generating a pseudo-element with a diagonal
-/// splitted background.
-/// @access public
-/// @author Hugo Giraudel
-/// @param {Angle} $angle - the tilt angle
-/// @param {Color} $color - the color to be used as background + gradient
-/// @param {String} $position ['top'] - either `top` or `bottom`
-/// @param {String} $pseudo ['before'] - either `before` or `after`
-@mixin tilted($angle, $color, $position: 'top', $pseudo: 'before') {
-  $height: get-tilted-height($angle);
-
-  position: relative;
-  background-color: $color;
-
-  &::#{$pseudo} {
-    content: '';
-    padding-top: $height;
-    position: absolute;
-    left: 0;
-    right: 0;
-
-    @if ($position == 'top') {
-      bottom: 100%;
-      background-image: linear-gradient($angle, $color 50%, transparent 50%);
-      } @else {
-        top: 100%;
-        background-image: linear-gradient($angle, transparent 50%, $color 50%);
-      }
-    }
+@mixin glow-box-hover{
+  &:hover{
+    border: 2px solid rgba($c-first, 0.5);
+    box-shadow: 0px 0px 13px -1px rgba($c-second, 0.8);
   }
-
-
-
-  @mixin scrollbar{
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba($c-first, 0.25);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba($c-first, 0.5);
-    }
+}
+@mixin glow-box-focus{
+  &:focus{
+    border: 2px solid $c-first;
+    box-shadow: 0px 0px 24px 0px $c-second;
   }
-
-  @mixin scrollbar-gray{
-    ::-webkit-scrollbar {
-      width: 8px;
-      @include bp(max-width, $bp-small){
-        width: 5px;
-      }
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba($c-black, 0.25);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba($c-black, 0.5);
-    }
-  }
-
-
-  @mixin scrollbar-custom{
-    ::-webkit-scrollbar-track {
-      background-color: #f5f5f5;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: #d3d3d3;
-      border: 1px solid #f5f5f5;
-    }
-    ::-webkit-scrollbar {
-      width: 8px;
-      background-color: #f5f5f5;
-    }
-  }
+}

@@ -1,5 +1,3 @@
-//VARIABLES
-
 //Breakpoints;
 $bp-desktop: 1600px;
 $bp-tablet: 1024px;
@@ -16,8 +14,6 @@ $c-yellow: gold;
 $c-white: white;
 $c-black: black;
 
-
-
 $c-first: #212121;
 $c-second: #00e;
 $c-third: #5a5aff;
@@ -33,12 +29,14 @@ $f-sans: 'ProximaNova', 'Montserrat', 'Arial', sans-serif;
 $f-safe: 'Verdana', 'Arial', $f-sans;
 $f-title: 'Action', 'Montserrat', $f-sans;
 $f-stack-serif: 'Georgia', 'Times', 'Times New Roman', serif;
-$f-monospace: 'Work Sans', monospace;
+$f-monospace: monospace;
 
 $f-bigger: 120px;
 $f-big:	36px;
 $f-medium: 24px;
 $f-regular:	16px;
+$f-small: 14px;
+$f-xsmall: 12px;
 
 
 body{
