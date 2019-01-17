@@ -13,6 +13,7 @@
 				<div class="form-row flex">
 					<div class="form-item flex column justify-end halfwidth">
 						<label class="form-title fullwidth">First name:</label>
+						<!-- Hardcoded validation -->
 						<div class="form-content validation active correct">
 							<input tabindex="1" class="input fullwidth" type="text" placeholder="First name" value="Daniel">
 							<span class="validation-icon flex center correct">
@@ -39,6 +40,7 @@
 					</div>
 					<div class="form-item flex column justify-end thirdwidth">
 						<div class="form-content justify-end">
+							<!-- Workaround to get RADIO/CHECKBOX visually custom  -->
 							<div class="form-item flex custom-radio fullwidth">
 								<div class="radio">
 									<input type="radio" name="gender" id="male" checked>
@@ -59,6 +61,7 @@
 				<div class="form-row flex">
 					<div class="form-item flex column justify-end fullwidth">
 						<label class="form-title fullwidth">Address:</label>
+						<!-- Hardcoded validation -->
 						<div class="form-content validation active error">
 							<input class="input fullwidth" type="text" placeholder="Address" value="Address">
 						</div>
@@ -85,11 +88,13 @@
 					<div class="form-item flex column justify-end fullwidth">
 						<label class="form-title fullwidth">Country</label>
 						<div class="form-content">
+							<ng-select [options]="countries" [displayKey]="'value'" [styleGuide]="styleGuide" [searchKeys]="[ 'key', 'value' ]" ></ng-select>
+							<!--
 							<select class="input">
 								<option selected>Sweden</option>
 								<option>Norway</option>
 								<option>Finland</option>
-							</select>
+							</select>-->
 						</div>
 					</div>
 				</div>
@@ -97,11 +102,12 @@
 					<div class="form-item flex column justify-end thirdwidth">
 						<label class="form-title fullwidth">Country code:</label>
 						<div class="form-content">
-							<select class="input">
+							<ng-select [options]="countrycode" [displayKey]="'value'" [styleGuide]="styleGuide" [searchKeys]="[ 'key', 'value' ]" ></ng-select>
+							<!-- <select class="input">
 								<option selected>+46</option>
 								<option>+47</option>
 								<option>+48</option>
-							</select>
+							</select> -->
 						</div>
 					</div>
 					<div class="form-item flex column justify-end twothirdwidth">

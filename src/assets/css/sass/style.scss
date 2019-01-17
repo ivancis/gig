@@ -16,79 +16,6 @@ $c-first: #b2ffbe;
 $c-second: #94ffa4;
 $s-radio: 25px;
 
-*{
-	box-sizing: border-box;
-	font-weight: 400;
-	color: $c-white;
-	::-webkit-scrollbar-track {
-		background-color: $c-bg;
-	}
-	::-webkit-scrollbar-thumb {
-		background-color: $c-second;
-	}
-	::-webkit-scrollbar {
-		width: 2px;
-		background-color: $c-bg;
-	}
-	::selection{
-		color: $c-white;
-		background: #90a4ae;
-	}
-}
-
-.flex{
-	display: flex;
-	&.wrap{
-		flex-wrap: wrap;
-	}
-	&.center{
-		justify-content: center;
-		align-items: center;
-	}
-	&.column{
-		flex-direction: column;
-	}
-	&.space-between{
-		justify-content: space-between;
-	}
-	&.align-start{
-		align-items: flex-start;
-	}
-	&.align-end{
-		align-items: flex-end;
-	}
-	&.justify-start{
-		justify-content: flex-start;
-	}
-	&.justify-end{
-		justify-content: flex-end;
-	}
-}
-
-.fullwidth{
-	width: 100%;
-}
-.halfwidth{
-	width: 50%;
-}
-.thirdwidth{
-	width: 33.3%;
-}
-.twothirdwidth{
-	width: 66.6%;
-}
-
-.svg-icon-border{
-	fill: none;
-	stroke-width: 2;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	&.c-white{
-		stroke: $c-white;
-	}
-}
-
-
 .button, .button:visited{
 	font-family: $f-sans;
 	text-decoration: none;
@@ -234,14 +161,15 @@ $s-radio: 25px;
 			font-family: $f-title;
 			line-height: 1;
 			@include responsive-font(10vw, 50px, 120px, 50px);
+			@include bp(max-width, $bp-tablet){
+				font-family: $f-sans;
+				font-weight: 600;
+				@include responsive-font(10vw, 20px, 30px, 20px);
+			}
 		}
 	}
 	.form-subtitle{
 		margin-bottom: 10px;
-		@include bp(max-width, $bp-desktop){
-		}
-		@include bp(max-width, $bp-tablet){
-		}
 		h2{
 			font-size: $f-medium;
 			@include bp(max-width, $bp-desktop){
@@ -300,6 +228,9 @@ $s-radio: 25px;
 				}
 				/* /////////////////////////////////// */
 				.form-content{
+					position: relative;
+					display: flex;
+					flex-direction: column;
 					position: relative;	
 					.form-item{
 						width: 100%;
@@ -346,151 +277,192 @@ $s-radio: 25px;
 										background-size: 70%;
 									}
 									/* ////////// */
-									.input{
-										padding-right: 25%;
-									}
-								}
-								.validation-icon{
-									opacity: 1;
-									right: 0;
+								.input{
+									padding-right: 25%;
 								}
 							}
 							.validation-icon{
 								opacity: 1;
-								position: absolute;
-								top: 0;
-								right: -5%;
-								bottom: 0;
-								width: 25%;
-								max-width: 50px;
-								height: 100%;
-								@include transition(200ms);
-								opacity: 0;
-								padding: 5px;
-								.validation-svg{
-									/* Prevents the SVG to misbehave when the container grows */
-									width: 100%;
-									max-height: 100%;
-								}
+								right: 0;
+							}
+						}
+						.validation-icon{
+							opacity: 1;
+							position: absolute;
+							top: 0;
+							right: -5%;
+							bottom: 0;
+							width: 25%;
+							max-width: 50px;
+							height: 100%;
+							@include transition(200ms);
+							opacity: 0;
+							padding: 5px;
+							.validation-svg{
+								/* Prevents the SVG to misbehave when the container grows */
+								width: 100%;
+								max-height: 100%;
 							}
 						}
 					}
-					.button{
-						@include bp(max-width, $bp-desktop){
-						}
-						@include bp(max-width, $bp-tablet){
-						}
-						@include bp(max-width, $bp-phone){
-							width: 100%;
-						}
+				}
+				.button{
+					@include bp(max-width, $bp-desktop){
+					}
+					@include bp(max-width, $bp-tablet){
+					}
+					@include bp(max-width, $bp-phone){
+						width: 100%;
 					}
 				}
 			}
 		}
 	}
-	.input{
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
+}
+.input{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	margin: 0;
+	outline: none;
+	padding: $f-regular;
+	font-size: $f-medium;
+	color: $c-white;
+	font-family: $f-sans;
+	text-transform: uppercase;
+	@include transition(100ms);
+	/* Wasn't quite sure if in the PSD were PLACEHOLDERS or VALUES */
+	&::-webkit-input-placeholder{
+		color: rgba($c-white, 0.7);
+	}
+	&::-moz-placeholder{
+		color: rgba($c-white, 0.7);
+	}
+	&::-ms-input-placeholder{
+		color: rgba($c-white, 0.7);
+	}
+	&::-moz-placeholder{
+		color: rgba($c-white, 0.7);
+	}
+	@include glow-box;
+	&:hover{
+		@include glow-box-hover;
+	}
+	&:focus{
+		@include glow-box-focus;
+	}
+
+	@include bp(max-width, $bp-desktop){
+		padding: $f-small;
+		font-size: $f-regular;
+	}
+	@include bp(max-width, $bp-tablet){
+		padding: 10px;
+	}
+	@include bp(max-width, $bp-phone){
+	}
+}
+
+
+select.input{
+	/* Fallback for normal html SELECT */
+	background-position: right 20px top 50%;
+	background-repeat: no-repeat;
+	background-image: url(/assets/img/arrow.svg);
+	background-size: 15px;
+	position: relative;
+	appearance: none;
+	-webkit-appearance: none;
+	-o-appearance: none;
+	-moz-appearance: none;
+	cursor: pointer;
+}
+
+ng-select{
+	width: 100%;
+	.dropdown-wrapper{
 		width: 100%;
-		margin: 0;
-		outline: none;
-		padding: $f-regular;
-		font-size: $f-medium;
-		color: $c-white;
-		font-family: $f-sans;
-		text-transform: uppercase;
-		@include transition(100ms);
-		/* Wasn't quite sure if in the PSD were PLACEHOLDERS or VALUES */
-		&::-webkit-input-placeholder{
-			color: rgba($c-white, 0.7);
+		@extend .input;
+		padding: 0;
+		input{
+			@extend .input;
+			box-shadow: none !important;
 		}
-		&::-moz-placeholder{
-			color: rgba($c-white, 0.7);
-		}
-		&::-ms-input-placeholder{
-			color: rgba($c-white, 0.7);
-		}
-		&::-moz-placeholder{
-			color: rgba($c-white, 0.7);
-		}
-		@include glow-box;
-		&:hover{
-			@include glow-box-hover;
-		}
-		&:focus{
+		&.active{
 			@include glow-box-focus;
 		}
-
-		@include bp(max-width, $bp-desktop){
-			padding: $f-small;
-			font-size: $f-regular;
+		.caret{
+			background-repeat: no-repeat;
+			background-image: url(/assets/img/arrow.svg);
+			background-position: 50%;
+			background-size: 20px;
+			width: 50px;
+			height: 100%;
 		}
-		@include bp(max-width, $bp-tablet){
-			padding: 10px;
-		}
-		@include bp(max-width, $bp-phone){
+		.dropdown{
+			@include glow-box;
+			background-color: $c-black;
+			.option{
+				padding: $f-small;
+				border-bottom: 1px solid rgba($c-first, 0.1);
+				&:last-child{
+					border-bottom: 0;
+				}
+				@include bp(max-width, $bp-tablet){
+					padding: 10px;
+				}
+				&:hover{
+					background-color: rgba($c-first, 0.1);
+				}
+			}
 		}
 	}
+}
 
-
-	select.input{
-		/* Fallback for normal html SELECT */
-		background-position: right 20px top 50%;
-		background-repeat: no-repeat;
-		background-image: url(/assets/img/arrow.svg);
-		background-size: 15px;
-		position: relative;
-		appearance: none;
-		-webkit-appearance: none;
-		-o-appearance: none;
-		-moz-appearance: none;
-		cursor: pointer;
-	}
-
-	.radio{
+.radio{
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	display: flex;
+	pointer-events: none;
+	input{
 		position: absolute;
-		top: 0;
 		left: 0;
+		top: 0;
+		opacity: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
 		cursor: pointer;
-		display: flex;
-		pointer-events: none;
-		input{
+	}
+	span{
+		width: $s-radio;
+		height: $s-radio;
+		border-radius: 100%;
+		position: relative;
+		@include glow-box;
+		&:before{
+			content: "";
 			position: absolute;
 			left: 0;
 			top: 0;
-			opacity: 0;
 			right: 0;
 			bottom: 0;
-			width: 100%;
-			height: 100%;
-			cursor: pointer;
-		}
-		span{
-			width: $s-radio;
-			height: $s-radio;
+			margin: auto;
 			border-radius: 100%;
-			position: relative;
-			@include glow-box;
-			&:before{
-				content: "";
-				position: absolute;
-				left: 0;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				margin: auto;
-				border-radius: 100%;
-				background-color: $c-white;
-				width: 50%;
-				height: 50%;
-				opacity: 0;
-				@include transform(scale(1));
-				@include transition(100ms);
-			}
-		}
-		input:checked ~ span:before {
-			opacity: 1;
+			background-color: $c-white;
+			width: 50%;
+			height: 50%;
+			opacity: 0;
 			@include transform(scale(1));
+			@include transition(100ms);
 		}
 	}
+	input:checked ~ span:before {
+		opacity: 1;
+		@include transform(scale(1));
+	}
+}

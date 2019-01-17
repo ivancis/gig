@@ -54,3 +54,75 @@ img{
 		opacity: 1;
 	}
 }
+
+*{
+	box-sizing: border-box;
+	font-weight: 400;
+	color: $c-white;
+	::-webkit-scrollbar-track {
+		background-color: $c-bg;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: $c-second;
+	}
+	::-webkit-scrollbar {
+		width: 2px;
+		background-color: $c-bg;
+	}
+	::selection{
+		color: $c-white;
+		background: #90a4ae;
+	}
+}
+
+.flex{
+	display: flex;
+	&.wrap{
+		flex-wrap: wrap;
+	}
+	&.center{
+		justify-content: center;
+		align-items: center;
+	}
+	&.column{
+		flex-direction: column;
+	}
+	&.space-between{
+		justify-content: space-between;
+	}
+	&.align-start{
+		align-items: flex-start;
+	}
+	&.align-end{
+		align-items: flex-end;
+	}
+	&.justify-start{
+		justify-content: flex-start;
+	}
+	&.justify-end{
+		justify-content: flex-end;
+	}
+}
+
+.fullwidth{
+	width: 100%;
+}
+.halfwidth{
+	width: 50%;
+}
+.thirdwidth{
+	width: 33.3%;
+}
+.twothirdwidth{
+	width: 66.6%;
+}
+
+.svg-icon-border{
+	fill: none;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	&.c-white{
+		stroke: $c-white;
+	}
+}
