@@ -74,7 +74,13 @@ $s-radio: 25px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		@include absolute-container;
+		
+		// Not sure if this was the idea for the background
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
 		z-index: -1;
 		.kaboo{
 			height: 50%;

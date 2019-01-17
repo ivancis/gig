@@ -1,14 +1,19 @@
 <div class="fullpage flex center align-start">
+	<!-- Background -->
 	<div class="background">
 		<div class="kaboo top"></div>
 		<div class="kaboo bottom"></div>
 		<div class="kaboo-overlay"></div>
 	</div>
 
+	<!-- Box -->
 	<div class="form-container glow-box">
 		<div class="form-title"><h1>Register</h1></div>
 		<div class="form-subtitle"><h2>#USERNAME# Please finalise your registration BEFORE YOU CAN PROCEED</h2></div>
+
+		<!-- Form -->
 		<form class="form flex wrap">
+			<!-- Form module -->
 			<div class="form-column flex column halfwidth">
 				<div class="form-row flex">
 					<div class="form-item flex column justify-end halfwidth">
@@ -24,6 +29,7 @@
 							</span>
 						</div>
 					</div>
+
 					<div class="form-item flex column justify-end halfwidth">
 						<label class="form-title fullwidth">Last name:</label>
 						<div class="form-content">
@@ -38,6 +44,7 @@
 							<input class="input fullwidth" type="text">
 						</div>
 					</div>
+
 					<div class="form-item flex column justify-end thirdwidth">
 						<div class="form-content justify-end">
 							<!-- Workaround to get RADIO/CHECKBOX visually custom  -->
@@ -69,6 +76,7 @@
 				</div>
 			</div>
 
+			<!-- Form module -->
 			<div class="form-column flex column halfwidth">
 				<div class="form-row flex">
 					<div class="form-item flex column justify-end halfwidth">
@@ -77,6 +85,7 @@
 							<input class="input fullwidth" type="text" placeholder="postcode">
 						</div>
 					</div>
+
 					<div class="form-item flex column justify-end twothirdwidth">
 						<label class="form-title fullwidth">City:</label>
 						<div class="form-content">
@@ -88,8 +97,9 @@
 					<div class="form-item flex column justify-end fullwidth">
 						<label class="form-title fullwidth">Country</label>
 						<div class="form-content">
+							<!-- I had to google a little bit to make the ng-custom-selects work. -->
 							<ng-select [options]="countries" [displayKey]="'value'" [styleGuide]="styleGuide" [searchKeys]="[ 'key', 'value' ]" ></ng-select>
-							<!--
+							<!-- Static HTML
 							<select class="input">
 								<option selected>Sweden</option>
 								<option>Norway</option>
@@ -103,13 +113,15 @@
 						<label class="form-title fullwidth">Country code:</label>
 						<div class="form-content">
 							<ng-select [options]="countrycode" [displayKey]="'value'" [styleGuide]="styleGuide" [searchKeys]="[ 'key', 'value' ]" ></ng-select>
-							<!-- <select class="input">
+							<!-- Static HTML
+							<select class="input">
 								<option selected>+46</option>
 								<option>+47</option>
 								<option>+48</option>
 							</select> -->
 						</div>
 					</div>
+					
 					<div class="form-item flex column justify-end twothirdwidth">
 						<label class="form-title fullwidth">Phone number:</label>
 						<div class="form-content">
@@ -119,6 +131,7 @@
 				</div>
 			</div>
 
+			<!-- Form module -->
 			<div class="form-column flex column fullwidth">
 				<div class="form-row flex">
 					<div class="form-item flex column justify-end fullwidth">
@@ -127,6 +140,8 @@
 				</div>
 			</div>
 		</form>
+
+		<!-- Form comments -->
 		<div class="form-comment form-subtitle">
 			<h2>YOU WILL THEN CONFIRM YOUR DEPOSIT</h2>
 		</div>
